@@ -1,14 +1,12 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-#from selenium.common.exceptions import WebDriverException
 from time import sleep
-#from multiprocessing.dummy import Pool as ThreadPool
 from concurrent.futures import ThreadPoolExecutor
 from colorama import init,Fore
 import os
 
-#known issue after quit not all of the chrome.exe process stops
+#[FIXED] known issue after quit not all of the chrome.exe process stops
 
 class Main:
     def clear(self):
@@ -74,11 +72,10 @@ class Main:
                 print(Fore.RED+'['+Fore.WHITE+'-'+Fore.RED+'] BAD | {0}:{1}'.format(username,password))
                 with open('bads.txt','a') as f:
                     f.write('{0}:{1}\n'.format(username,password))
-
-            driver.close()
-            driver.quit()
         except:
-            pass
+            self.Login(combos)
+        finally:
+            driver.quit()
         
 
     def Start(self):
