@@ -1,6 +1,11 @@
 # SpotifyCheckerSelenium
  Simple tool which checks if a spotify account is valid or not.
 
+# Installation
+```
+pip3 install -r requirements.txt
+``` 
+
 # Tool
 ![](https://i.ibb.co/kx5jyL8/tool.png)
 
