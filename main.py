@@ -131,6 +131,8 @@ class Main:
             self.retries += 1
             driver.quit()
             self.Login(username,password)
+        finally:
+            driver.quit()
         
 
     def Start(self):
