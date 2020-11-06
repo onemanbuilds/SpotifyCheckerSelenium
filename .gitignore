@@ -124,3 +124,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 output/SpotifyCheckerSelenium.exe
+SpotifyCheckerSelenium.zip
+SpotifyCheckerSelenium/chromedriver.exe
+SpotifyCheckerSelenium/ChromeKiller.exe
+SpotifyCheckerSelenium/combos.txt
+SpotifyCheckerSelenium/proxies.txt
+SpotifyCheckerSelenium/SpotifyCheckerSelenium.exe
+SpotifyCheckerSelenium/useragents.txt
