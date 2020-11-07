@@ -7,12 +7,11 @@ pip3 install -r requirements.txt
 ``` 
 
 # Tool
-![](https://i.ibb.co/kx5jyL8/tool.png)
+![](https://i.ibb.co/zV4JwzW/tool.png)
 
 # Example
-![](https://i.ibb.co/mXx45jP/example.png)
+![](https://i.ibb.co/RDjQFdK/example.png)
 
-  
 # Legal
  This was merely a speedrun to demonstrate how account checkers work.<br/>
  This is illegal if you use this without the consent of the owners (in this case, the Spotify team).<br/>

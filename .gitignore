@@ -132,3 +132,6 @@ SpotifyCheckerSelenium/proxies.txt
 SpotifyCheckerSelenium/SpotifyCheckerSelenium.exe
 SpotifyCheckerSelenium/useragents.txt
 output/main.exe
+SpotifyCheckerSelenium/example.PNG
+SpotifyCheckerSelenium/hits.txt
+SpotifyCheckerSelenium/tool.PNG
