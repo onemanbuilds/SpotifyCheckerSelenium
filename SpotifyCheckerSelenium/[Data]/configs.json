@@ -1,0 +1,11 @@
+{
+    "use_proxy":0,
+    "proxy_type":2,
+    "headless":1,
+    "website_load_max_wait":20,
+    "login_check_max_wait":20,
+    "wait_before_start":1,
+    "browser_amount":1,
+    "webhook_enable":0,
+    "webhook_url":"webhookurl"
+}
